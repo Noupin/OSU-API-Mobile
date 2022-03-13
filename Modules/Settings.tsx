@@ -1,5 +1,5 @@
 //Third Party Imports
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { useRecoilState, useRecoilValue } from 'recoil';
@@ -21,7 +21,7 @@ export const Settings: FC = () => {
     <View style={{flex: 1, alignItems: "center", marginHorizontal: 10}}>
       <SText style={{marginBottom: 15, fontWeight: 'bold', fontSize: 25}}>Settings</SText>
       <View style={{flexDirection: 'column', alignItems: 'center'}}>
-        <SText>Change Name: {name}</SText>
+        <SText>Current Name: {name}</SText>
         <View style={{flexDirection: 'row', alignItems: 'center', width: "100%"}}>
           <View style={{flex: 1}}></View>
           <View style={{flex: 4}}>
@@ -33,6 +33,7 @@ export const Settings: FC = () => {
           <View style={{flex: 1}}></View>
         </View>
       </View>
+
       <View style={{flexDirection: 'row', alignItems: 'center', padding: 10, marginHorizontal: 15}}>
         <SText style={{flex: 1}}>Color Theme</SText>
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'flex-end', marginRight: 5}}>

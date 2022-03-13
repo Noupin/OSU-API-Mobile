@@ -27,7 +27,7 @@ export const ScreenContainer: FC = ({children}) => {
           </TouchableOpacity>
           <TouchableOpacity>
             <Image style={{height: TOP_BAR_SIZE, width: TOP_BAR_SIZE}}
-            source={require('../Assets/logo.png')}/>
+            source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}/>
           </TouchableOpacity>
           <TouchableOpacity style={{...MainStyles.borderRadiusC, padding: 5}}>
             <Icon name='settings' size={20} color={colors.text}

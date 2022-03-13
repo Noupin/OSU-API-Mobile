@@ -30,13 +30,23 @@ export const COLORS: IColors = {
 export const THEME_ICON = {
     light: 'light-up',
     dark: 'moon',
-    device: 'smartphone',
+    device: 'phone-portrait-outline',
 }
 
 export const THEME_ICON_TYPE = {
     light: 'entypo',
     dark: 'entypo',
-    device: 'material',
+    device: 'ionicon',
+}
+
+export const TAB_ICON = {
+    Home: 'home',
+    Settings: 'player-settings',
+}
+
+export const TAB_ICON_TYPE = {
+    Home: 'ionicons',
+    Settings: 'fontisto',
 }
 
 export const THEME_COLORS = {
