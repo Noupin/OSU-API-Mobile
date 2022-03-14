@@ -70,9 +70,14 @@ export const NEXT_THEME = {
     device: TThemeArray[1]
 }
 
+export const BACK_ICON = {
+    name: 'ios-chevron-back-outline',
+    type: 'ionicon',
+}
+
 export const ATTENDANCE_ICON = {
     name: 'ios-list-outline',
-    type: 'ionicon'
+    type: 'ionicon',
 }
 
 export const RADIUS_SIZE = 25;

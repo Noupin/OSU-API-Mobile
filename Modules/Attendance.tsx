@@ -9,14 +9,14 @@ import { SText } from '../Components/SText';
 import { MainStyles } from '../Styles/MainStyles';
 
 
-export const Join: FC = () => {
+export const Attendance: FC = () => {
   const [theme, setTheme] = useRecoilState(themeState);
   const colors = useRecoilValue(colorState);
   const [name, setName] = useRecoilState(nameState)
 
   return (
     <View style={{flex: 1, alignItems: "center", marginHorizontal: 10}}>
-      <SText style={{marginBottom: 15, fontWeight: 'bold', fontSize: 25}}>Join</SText>
+      <SText style={{marginBottom: 15, fontWeight: 'bold', fontSize: 25}}>Attendance</SText>
     </View>
   );
 }

@@ -2,6 +2,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { useEffect } from 'react';
 import { StatusBar, useColorScheme } from 'react-native';
 import { Icon } from 'react-native-elements';
@@ -11,7 +12,9 @@ import { useRecoilState } from 'recoil';
 //First Party Imports
 import { COLORS, TAB_COLOR, TAB_ICON, TAB_ICON_TYPE } from './Constants';
 import { navigationRef } from './Helpers/Navigation';
+import { Attendance } from './Modules/Attendance';
 import { Home } from './Modules/Home';
+import { Join } from './Modules/Join';
 import { ScreenContainer } from './Modules/ScreenContainer';
 import { Settings } from './Modules/Settings';
 import { colorState, initialState, nameState, themeState } from './RecoilState';
@@ -19,11 +22,35 @@ import { TTabName } from './Types/TTabName';
 import { TTheme } from './Types/TTheme';
 
 
+const SettingsStack = createNativeStackNavigator();
+
+const SettingsScreenStack = () => {
+  return (
+    <SettingsStack.Navigator screenOptions={{headerShown: false}}>
+      <SettingsStack.Screen name="Settings">
+        {(props) => (
+          <ScreenContainer {...props}>
+            <Settings/>
+          </ScreenContainer>
+        )}
+      </SettingsStack.Screen>
+      <SettingsStack.Screen name="Attendance">
+        {(props) => (
+          <ScreenContainer {...props}>
+            <Attendance/>
+          </ScreenContainer>
+        )}
+      </SettingsStack.Screen>
+    </SettingsStack.Navigator>
+  );
+}
+
+
 const Tab = createBottomTabNavigator();
 
 const App = () => {
-  const [theme, setTheme] = useRecoilState(themeState);
-  const [name, setName] = useRecoilState(nameState);
+  const [theme, setTheme] = useRecoilState(themeState)
+  const [name, setName] = useRecoilState(nameState)
   const [initial, setInitial] = useRecoilState(initialState)
   const [colors, setColors] = useRecoilState(colorState)
   var scheme = useColorScheme()
@@ -79,17 +106,11 @@ const App = () => {
             <Tab.Screen name="Join">
               {(props) => (
                 <ScreenContainer {...props}>
-                  <Home/>
+                  <Join/>
                 </ScreenContainer>
               )}
             </Tab.Screen>
-            <Tab.Screen name="Settings">
-              {(props) => (
-                <ScreenContainer {...props}>
-                  <Settings/>
-                </ScreenContainer>
-              )}
-            </Tab.Screen>
+            <Tab.Screen name="Settings" component={SettingsScreenStack}/>
           </Tab.Navigator>
         </NavigationContainer>
       </SafeAreaProvider>

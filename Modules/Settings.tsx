@@ -10,6 +10,8 @@ import { NEXT_THEME, THEME_COLORS, THEME_ICON, THEME_ICON_TYPE } from '../Consta
 import { SText } from '../Components/SText';
 import { MainStyles } from '../Styles/MainStyles';
 import { STextInput } from '../Components/STextInput';
+import { SButton } from '../Components/SButton';
+import { navigate, navigationRef } from '../Helpers/Navigation';
 
 
 export const Settings: FC = () => {
@@ -53,12 +55,10 @@ export const Settings: FC = () => {
       <View style={{flexDirection: 'row', alignItems: 'center', width: "100%"}}>
         <View style={{flex: 1}}></View>
         <View style={{flex: 4}}>
-          <TouchableOpacity style={[MainStyles.borderRadius2, {backgroundColor: colors.button, padding: 10, margin: 5}]}
-          onPress={() => {
-
-          }}>
+          <SButton style={[MainStyles.borderRadius2, {padding: 10, margin: 5}]}
+          onPress={() => {navigate("Attendance")}}>
             <SText style={[MainStyles.textCenter]}>Take Attendance</SText>
-          </TouchableOpacity>
+          </SButton>
         </View>
         <View style={{flex: 1}}></View>
       </View>
@@ -66,15 +66,12 @@ export const Settings: FC = () => {
       <View style={{flexDirection: 'row', alignItems: 'center', width: "100%"}}>
         <View style={{flex: 1}}></View>
         <View style={{flex: 4}}>
-          <TouchableOpacity style={[MainStyles.borderRadius2, {backgroundColor: colors.button, padding: 10, margin: 5}]}
-          onPress={() => {
-
-          }}>
+          <SButton style={[MainStyles.borderRadius2, {padding: 10, margin: 5}]}
+          onPress={() => {navigate("Attendance")}}>
             <SText style={[MainStyles.textCenter]}>
-              Join Attendance <Icon name='ios-enter' type='ionicon' size={20} color={colors.text}
-              hasTVPreferredFocus={undefined} tvParallaxProperties={undefined}/>
+              Join Attendance
             </SText>
-          </TouchableOpacity>
+          </SButton>
         </View>
         <View style={{flex: 1}}></View>
       </View>
