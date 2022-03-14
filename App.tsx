@@ -1,4 +1,5 @@
 //Third Party Imports
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useEffect } from 'react';
@@ -11,20 +12,44 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { COLORS, TAB_ICON, TAB_ICON_TYPE } from './constants';
 import { ScreenContainer } from './Modules/ScreenContainer';
 import { Settings } from './Modules/Settings';
-import { colorState, themeState } from './RecoilState';
+import { colorState, initialState, nameState, themeState } from './RecoilState';
 import { TTabName } from './Types/TTabName';
+import { TTheme } from './Types/TTheme';
 
 
 const Tab = createBottomTabNavigator();
 
 const App = () => {
-  const theme = useRecoilValue(themeState);
+  const [theme, setTheme] = useRecoilState(themeState);
+  const [name, setName] = useRecoilState(nameState);
+  const [initial, setInitial] = useRecoilState(initialState)
   const [colors, setColors] = useRecoilState(colorState)
   var scheme = useColorScheme()
 
   useEffect(() => {
+    async function loadFromStorage(){
+      let localName = await AsyncStorage.getItem('name')
+      let localTheme = await AsyncStorage.getItem('theme') as TTheme
+
+      if(localName) setName(localName)
+      if(localTheme) setTheme(localTheme)
+
+      setInitial(true)
+    }
+
+    loadFromStorage()
+  }, [])
+
+  useEffect(() => {
     setColors((theme === 'device' && scheme === 'dark') || theme === 'dark' ? COLORS.dark : COLORS.light)
   }, [theme, scheme])
+
+  useEffect(() => {
+    if(!initial) return
+
+    AsyncStorage.setItem("name", name)
+    AsyncStorage.setItem("theme", theme)
+  }, [name, theme])
 
   return (
     <>
@@ -48,14 +73,14 @@ const App = () => {
                 </ScreenContainer>
               )}
             </Tab.Screen>
-            <Tab.Screen name="Settings">
+            <Tab.Screen name="Join">
               {(props) => (
                 <ScreenContainer {...props}>
                   <Settings/>
                 </ScreenContainer>
               )}
             </Tab.Screen>
-            <Tab.Screen name="Join">
+            <Tab.Screen name="Settings">
               {(props) => (
                 <ScreenContainer {...props}>
                   <Settings/>

@@ -20,3 +20,8 @@ export const nameState = atom({
     key: 'name',
     default: 'Me',
 });
+
+export const initialState = atom({
+    key: 'initial',
+    default: false,
+});
