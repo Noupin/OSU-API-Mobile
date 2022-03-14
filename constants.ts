@@ -27,6 +27,8 @@ export const COLORS: IColors = {
     }
 }
 
+export const TAB_COLOR = '#CE0F3D'
+
 export const THEME_ICON = {
     light: 'light-up',
     dark: 'moon',

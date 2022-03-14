@@ -2,7 +2,7 @@
 import { StyleSheet } from 'react-native';
 
 //First Party Imports
-import { TOP_BAR_SIZE } from '../constants';
+import { TOP_BAR_SIZE } from '../Constants';
 
 
 export const HeaderBarStyle = StyleSheet.create({

@@ -6,7 +6,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 
 //First Party Imports
 import { colorState, nameState, themeState } from '../RecoilState';
-import { NEXT_THEME, THEME_COLORS, THEME_ICON, THEME_ICON_TYPE } from '../constants';
+import { NEXT_THEME, THEME_COLORS, THEME_ICON, THEME_ICON_TYPE } from '../Constants';
 import { SText } from '../Components/SText';
 import { MainStyles } from '../Styles/MainStyles';
 import { STextInput } from '../Components/STextInput';

@@ -6,10 +6,12 @@ import React, { useEffect } from 'react';
 import { StatusBar, useColorScheme } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 
 //First Party Imports
-import { COLORS, TAB_ICON, TAB_ICON_TYPE } from './constants';
+import { COLORS, TAB_COLOR, TAB_ICON, TAB_ICON_TYPE } from './Constants';
+import { navigationRef } from './Helpers/Navigation';
+import { Home } from './Modules/Home';
 import { ScreenContainer } from './Modules/ScreenContainer';
 import { Settings } from './Modules/Settings';
 import { colorState, initialState, nameState, themeState } from './RecoilState';
@@ -55,7 +57,7 @@ const App = () => {
     <>
       <StatusBar barStyle={colors.statusBar}/>
       <SafeAreaProvider>
-        <NavigationContainer>
+        <NavigationContainer ref={navigationRef}>
           <Tab.Navigator initialRouteName="Home" backBehavior='order'
           screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
@@ -65,18 +67,19 @@ const App = () => {
             },
             tabBarStyle: {backgroundColor: colors.background},
             headerShown: false,
+            tabBarActiveTintColor: TAB_COLOR,
           })}>
             <Tab.Screen name="Home">
               {(props) => (
                 <ScreenContainer {...props}>
-                  <Settings/>
+                  <Home/>
                 </ScreenContainer>
               )}
             </Tab.Screen>
             <Tab.Screen name="Join">
               {(props) => (
                 <ScreenContainer {...props}>
-                  <Settings/>
+                  <Home/>
                 </ScreenContainer>
               )}
             </Tab.Screen>

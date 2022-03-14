@@ -2,7 +2,7 @@
 import { atom } from "recoil";
 
 //First Party Imports
-import { COLORS } from "./constants";
+import { COLORS } from "./Constants";
 import { TTheme } from "./Types/TTheme";
 
 

@@ -1,6 +1,6 @@
 //Third Party Imports
 import { StyleSheet } from 'react-native';
-import { RADIUS_SIZE } from '../constants';
+import { RADIUS_SIZE } from '../Constants';
 
 
 export const MainStyles = StyleSheet.create({
