@@ -20,6 +20,7 @@ export const Settings: FC = () => {
   return (
     <View style={{flex: 1, alignItems: "center", marginHorizontal: 10}}>
       <SText style={{marginBottom: 15, fontWeight: 'bold', fontSize: 25}}>Settings</SText>
+
       <View style={{flexDirection: 'column', alignItems: 'center'}}>
         <SText>Current Name: {name}</SText>
         <View style={{flexDirection: 'row', alignItems: 'center', width: "100%"}}>

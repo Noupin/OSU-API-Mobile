@@ -16,7 +16,6 @@ interface ITextInput extends TextInputProps{
 export const STextInput: FC<ITextInput> = ({onChangeText, alignText, padding,
   secureTextEntry, ...props}) => {
   const colors = useRecoilValue(colorState)
-
   const [hidden, setHidden] = useState(true)
 
   return ( secureTextEntry ?
