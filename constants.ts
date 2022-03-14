@@ -42,11 +42,13 @@ export const THEME_ICON_TYPE = {
 export const TAB_ICON = {
     Home: 'home',
     Settings: 'player-settings',
+    Join: 'people',
 }
 
 export const TAB_ICON_TYPE = {
     Home: 'ionicons',
     Settings: 'fontisto',
+    Join: 'simple-line-icons',
 }
 
 export const THEME_COLORS = {

@@ -55,6 +55,13 @@ const App = () => {
                 </ScreenContainer>
               )}
             </Tab.Screen>
+            <Tab.Screen name="Join">
+              {(props) => (
+                <ScreenContainer {...props}>
+                  <Settings/>
+                </ScreenContainer>
+              )}
+            </Tab.Screen>
           </Tab.Navigator>
         </NavigationContainer>
       </SafeAreaProvider>
