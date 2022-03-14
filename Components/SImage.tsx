@@ -3,11 +3,11 @@ import React, { FC, useState, useEffect } from 'react';
 import { Image, ImageProps } from 'react-native'
 
 
-interface IImage extends ImageProps{
+interface IImage extends Omit<ImageProps, 'source'>{
   imageSrc: string
 }
 
-export const FImage: FC<IImage> = ({imageSrc, style, source, ...props}) => {
+export const SImage: FC<IImage> = ({imageSrc, style, ...props}) => {
   const [fullAspectRatio, setFullAspectRatio] = useState(1)
 
   useEffect(() => {

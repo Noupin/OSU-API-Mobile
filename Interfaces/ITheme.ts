@@ -9,4 +9,5 @@ export interface ITheme{
     placeholderText: string | any
     textInputBackground: string
     button: string
+    overlay: string
 }

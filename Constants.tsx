@@ -5,6 +5,7 @@ import { threeHexToSixHex } from './Helpers/Colors';
 //First Party Imports
 import { IColors } from './Interfaces/IColors';
 import { IDevice } from './Interfaces/IDevice';
+import { IIcon } from './Interfaces/IIcon';
 import { TThemeArray } from './Types/TTheme';
 
 
@@ -22,6 +23,7 @@ export const COLORS: IColors = {
         placeholderText: lightPlaceholder,
         textInputBackground: '#00000010',
         button: '#BD8181',
+        overlay: '#FFFFFFB0',
     },
     dark: {
         background: Colors.darker,
@@ -30,6 +32,7 @@ export const COLORS: IColors = {
         placeholderText: darkPlaceholder,
         textInputBackground: '#FFFFFF10',
         button: '#BD8181',
+        overlay: '#000000B0',
     }
 }
 
@@ -70,14 +73,14 @@ export const NEXT_THEME = {
     device: TThemeArray[1]
 }
 
-export const BACK_ICON = {
+export const BACK_ICON: IIcon = {
     name: 'ios-chevron-back-outline',
     type: 'ionicon',
 }
 
-export const ATTENDANCE_ICON = {
-    name: 'ios-list-outline',
-    type: 'ionicon',
+export const ATTENDANCE_ICON: IIcon = {
+    name: 'clipboard',
+    type: 'entypo',
 }
 
 export const RADIUS_SIZE = 25;
@@ -144,7 +147,7 @@ export const DEVICES: IDevice[] = [
     {
         name: "Talon",
         modelURI: "",
-        imageURI: "http://enablingthefuture.org/wp-content/uploads/2014/01/talonhand2-0-138.jpg",
+        imageURI: "https://www.usine-digitale.fr/mediatheque/0/0/1/000198100_homePageUne/prothese-de-main-imprimee-3d.jpg",
         type: "Hand",
         category: "Open Back",
     },
