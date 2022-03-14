@@ -49,6 +49,35 @@ export const Settings: FC = () => {
           </View>
         </View>
       </View>
+
+      <View style={{flexDirection: 'row', alignItems: 'center', width: "100%"}}>
+        <View style={{flex: 1}}></View>
+        <View style={{flex: 4}}>
+          <TouchableOpacity style={[MainStyles.borderRadius2, {backgroundColor: colors.button, padding: 10, margin: 5}]}
+          onPress={() => {
+
+          }}>
+            <SText style={[MainStyles.textCenter]}>Take Attendance</SText>
+          </TouchableOpacity>
+        </View>
+        <View style={{flex: 1}}></View>
+      </View>
+
+      <View style={{flexDirection: 'row', alignItems: 'center', width: "100%"}}>
+        <View style={{flex: 1}}></View>
+        <View style={{flex: 4}}>
+          <TouchableOpacity style={[MainStyles.borderRadius2, {backgroundColor: colors.button, padding: 10, margin: 5}]}
+          onPress={() => {
+
+          }}>
+            <SText style={[MainStyles.textCenter]}>
+              Join Attendance <Icon name='ios-enter' type='ionicon' size={20} color={colors.text}
+              hasTVPreferredFocus={undefined} tvParallaxProperties={undefined}/>
+            </SText>
+          </TouchableOpacity>
+        </View>
+        <View style={{flex: 1}}></View>
+      </View>
     </View>
   );
 }

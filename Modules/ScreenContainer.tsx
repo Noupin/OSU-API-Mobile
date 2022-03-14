@@ -10,7 +10,7 @@ import { MainStyles } from '../Styles/MainStyles';
 import { HeaderBarStyle } from '../Styles/HeaderBar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colorState } from '../RecoilState';
-import { TOP_BAR_SIZE } from '../Constants';
+import { ATTENDANCE_ICON, TAB_ICON, TAB_ICON_TYPE, TOP_BAR_SIZE } from '../Constants';
 import { navigate } from '../Helpers/Navigation';
 
 
@@ -21,8 +21,9 @@ export const ScreenContainer: FC = ({children}) => {
     <SafeAreaView style={[MainStyles.container, {width: "100%", backgroundColor: colors.background}]}>
       <View style={[MainStyles.container, {width: "100%"}]}>
         <View style={HeaderBarStyle.container}>
+          {/*Keeps the logo centered but doesn't do anything just is rendered*/}
           <TouchableOpacity style={{...MainStyles.borderRadiusC, padding: 5}}>
-            <Icon name='menu' size={20} color={colors.text}
+            <Icon name={ATTENDANCE_ICON.name} type={ATTENDANCE_ICON.type} size={20} color={colors.text}
             hasTVPreferredFocus={undefined} tvParallaxProperties={undefined}/>
           </TouchableOpacity>
           <TouchableOpacity>
@@ -31,7 +32,7 @@ export const ScreenContainer: FC = ({children}) => {
           </TouchableOpacity>
           <TouchableOpacity style={{...MainStyles.borderRadiusC, padding: 5}}
           onPress={() => navigate('Settings')}>
-            <Icon name='settings' size={20} color={colors.text}
+            <Icon name={TAB_ICON.Settings} type={TAB_ICON_TYPE.Settings} size={20} color={colors.text}
             hasTVPreferredFocus={undefined} tvParallaxProperties={undefined}/>
           </TouchableOpacity>
         </View>

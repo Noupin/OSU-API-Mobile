@@ -8,4 +8,5 @@ export interface ITheme{
     statusBar: StatusBarStyle
     placeholderText: string | any
     textInputBackground: string
+    button: string
 }
