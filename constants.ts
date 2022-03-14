@@ -4,11 +4,15 @@ import { threeHexToSixHex } from './Helpers/Colors';
 
 //First Party Imports
 import { IColors } from './Interfaces/IColors';
+import { IDevice } from './Interfaces/IDevice';
 import { TThemeArray } from './Types/TTheme';
 
+
+/*
+Colors & Themes
+*/
 const lightPlaceholder = `${threeHexToSixHex(Colors.darker as string)}70`
 const darkPlaceholder = `${threeHexToSixHex(Colors.lighter as string)}70`
-
 
 export const COLORS: IColors = {
     light: {
@@ -66,3 +70,84 @@ export const NEXT_THEME = {
 
 export const RADIUS_SIZE = 25;
 export const TOP_BAR_SIZE = 30;
+
+
+/*
+Prosthetics Devices
+*/
+export const DEVICES: IDevice[] = [
+    {
+        name: "Unlimted Phoenix",
+        modelURI: "",
+        imageURI: "",
+        type: "Hand",
+        category: "Closed Back",
+        brand: "Phoenix",
+    },
+    {
+        name: "Phoenix V2",
+        modelURI: "",
+        imageURI: "",
+        type: "Hand",
+        category: "Closed Back",
+        brand: "Phoenix",
+    },
+    {
+        name: "Phoenix Hand Reborn",
+        modelURI: "",
+        imageURI: "",
+        type: "Hand",
+        category: "Closed Back",
+        brand: "Phoenix",
+    },
+    {
+        name: "Osprey",
+        modelURI: "",
+        imageURI: "",
+        type: "Hand",
+        category: "Closed Back",
+        brand: "Phoenix",
+    },
+    {
+        name: "Raptor Reloaded",
+        modelURI: "",
+        imageURI: "",
+        type: "Hand",
+        category: "Closed Back",
+    },
+    {
+        name: "Cyborg Beast",
+        modelURI: "",
+        imageURI: "",
+        type: "Hand",
+        category: "Closed Back",
+    },
+    {
+        name: "Flexy-Hand 2",
+        modelURI: "",
+        imageURI: "",
+        type: "Hand",
+        category: "Closed Back",
+    },
+    {
+        name: "Talon",
+        modelURI: "",
+        imageURI: "",
+        type: "Hand",
+        category: "Open Back",
+    },
+    {
+        name: "Ody-Hand",
+        modelURI: "",
+        imageURI: "",
+        type: "Hand",
+        category: "Open Back",
+    },
+    {
+        name: "Gripper Thumb",
+        modelURI: "",
+        imageURI: "",
+        type: "Finger",
+        category: "Thumb",
+    },
+]
