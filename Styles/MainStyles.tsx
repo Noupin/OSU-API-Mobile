@@ -10,9 +10,17 @@ export const MainStyles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    left: {
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start'
+    },
     center: {
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    right: {
+        alignItems: 'flex-end',
+        justifyContent: 'flex-end'
     },
     textCenter: {
         textAlign: 'center',

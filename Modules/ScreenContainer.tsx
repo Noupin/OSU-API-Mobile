@@ -27,7 +27,7 @@ export const ScreenContainer: FC = ({children}) => {
             hasTVPreferredFocus={undefined} tvParallaxProperties={undefined}
             onPress={() => {navigationRef.current.goBack()}}/>
           </TouchableOpacity> :
-          //This is invisible and does nothing when pressed, it just renders to keep spacing
+          //This is invisible and does nothing when pressed, it just renders to keep the logo centered
           <TouchableOpacity style={{...MainStyles.borderRadiusC, padding: 5}}>
             <Icon name={BACK_ICON.name} type={BACK_ICON.type} size={20} color={colors.background}
             hasTVPreferredFocus={undefined} tvParallaxProperties={undefined}/>
