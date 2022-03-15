@@ -19,7 +19,8 @@ import { Home } from './Modules/Home';
 import { Join } from './Modules/Join';
 import { ScreenContainer } from './Modules/ScreenContainer';
 import { Settings } from './Modules/Settings';
-import { colorState, initialState, nameState, themeState } from './RecoilState';
+import { attendanceTypeState, colorState, initialState, nameState, themeState } from './RecoilState';
+import { TAttendanceType } from './Types/TAttendanceType';
 import { TTabName } from './Types/TTabName';
 import { TTheme } from './Types/TTheme';
 
@@ -89,15 +90,18 @@ const App = () => {
   const [name, setName] = useRecoilState(nameState)
   const [initial, setInitial] = useRecoilState(initialState)
   const [colors, setColors] = useRecoilState(colorState)
+  const [attendanceType, setAttendanceType] = useRecoilState(attendanceTypeState)
   const scheme = useColorScheme()
 
   useEffect(() => {
     async function loadFromStorage(){
       let localName = await AsyncStorage.getItem('name')
       let localTheme = await AsyncStorage.getItem('theme') as TTheme
+      let localAttendanceType = await AsyncStorage.getItem('attendanceType') as TAttendanceType
 
       if(localName) setName(localName)
       if(localTheme) setTheme(localTheme)
+      if(localAttendanceType) setAttendanceType(localAttendanceType)
 
       setInitial(true)
     }
@@ -112,9 +116,10 @@ const App = () => {
   useEffect(() => {
     if(!initial) return
 
-    AsyncStorage.setItem("name", name)
-    AsyncStorage.setItem("theme", theme)
-  }, [name, theme])
+    AsyncStorage.setItem('name', name)
+    AsyncStorage.setItem('theme', theme)
+    AsyncStorage.setItem('attendanceType', attendanceType)
+  }, [name, theme, attendanceType])
 
   return (
     <>

@@ -6,6 +6,7 @@ import { threeHexToSixHex } from './Helpers/Colors';
 import { IColors } from './Interfaces/IColors';
 import { IDevice } from './Interfaces/IDevice';
 import { IIcon } from './Interfaces/IIcon';
+import { TAttendanceTypeArray } from './Types/TAttendanceType';
 import { TThemeArray } from './Types/TTheme';
 
 
@@ -40,6 +41,12 @@ export const COLORS: IColors = {
 
 export const TAB_COLOR = '#CE0F3D'
 
+export const NEXT_THEME = {
+    light: TThemeArray[0],
+    dark: TThemeArray[2],
+    device: TThemeArray[1]
+}
+
 export const THEME_ICON = {
     light: 'light-up',
     dark: 'moon',
@@ -69,10 +76,19 @@ export const THEME_COLORS = {
     dark: '#995edb',
 }
 
-export const NEXT_THEME = {
-    light: TThemeArray[0],
-    dark: TThemeArray[2],
-    device: TThemeArray[1]
+export const NEXT_ATTENDANCE_TYPE = {
+    global: TAttendanceTypeArray[0],
+    local: TAttendanceTypeArray[1],
+}
+
+export const ATTENDANCE_TYPE_ICON = {
+    global: 'ios-globe-outline',
+    local: 'ios-wifi',
+}
+
+export const ATTENDANCE_TYPE_ICON_TYPE = {
+    global: 'ionicon',
+    local: 'ionicon',
 }
 
 export const BACK_ICON: IIcon = {
@@ -81,8 +97,8 @@ export const BACK_ICON: IIcon = {
 }
 
 export const ATTENDANCE_ICON: IIcon = {
-    name: 'clipboard',
-    type: 'entypo',
+    name: 'ios-clipboard-outline',
+    type: 'ionicon',
 }
 
 export const RADIUS_SIZE = 25;

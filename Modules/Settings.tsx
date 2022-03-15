@@ -39,7 +39,7 @@ export const Settings: FC = () => {
             </View>
             <SButton style={[MainStyles.borderRadius2, MainStyles.center, {marginHorizontal: 10, flex: 2,
             height: 'auto', paddingVertical: 5}]} onPress={() => {if(locName !== '') setName(locName)}}>
-              <Icon name='arrow-up-circle' type='ionicon' color={colors.text}
+              <Icon name='arrow-up-circle-outline' type='ionicon' color={colors.text}
                 hasTVPreferredFocus={undefined} tvParallaxProperties={undefined}/>
             </SButton>
             <View style={{flex: 1}}></View>

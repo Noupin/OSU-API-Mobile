@@ -3,6 +3,7 @@ import { atom } from "recoil";
 
 //First Party Imports
 import { COLORS } from "./Constants";
+import { TAttendanceType } from "./Types/TAttendanceType";
 import { TTheme } from "./Types/TTheme";
 
 
@@ -24,4 +25,9 @@ export const nameState = atom({
 export const initialState = atom({
     key: 'initial',
     default: false,
+});
+
+export const attendanceTypeState = atom<TAttendanceType>({
+    key: 'attendanceType',
+    default: 'global',
 });
