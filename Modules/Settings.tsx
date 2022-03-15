@@ -31,13 +31,13 @@ export const Settings: FC = () => {
         <View style={{flexDirection: 'column', alignItems: 'center'}}>
           <View style={{flexDirection: 'row', alignItems: 'center', width: "100%"}}>
             <View style={{flex: 1}}></View>
-            <View style={{flex: 5}}>
+            <View style={{flex: 12}}>
               <STextInput style={[MainStyles.textCenter, MainStyles.borderRadius2, 
               {color: colors.text, backgroundColor: colors.textInputBackground, marginVertical: 10}]}
               onChangeText={setLocName} value={locName} autoCorrect={false} alignText="center"
               padding={10} placeholder="Your New Name"/>
             </View>
-            <SButton style={[MainStyles.borderRadius2, MainStyles.center, {marginHorizontal: 10, flex: 1,
+            <SButton style={[MainStyles.borderRadius2, MainStyles.center, {marginHorizontal: 10, flex: 2,
             height: 'auto', paddingVertical: 5}]} onPress={() => {if(locName !== '') setName(locName)}}>
               <Icon name='arrow-up-circle' type='ionicon' color={colors.text}
                 hasTVPreferredFocus={undefined} tvParallaxProperties={undefined}/>
@@ -49,10 +49,13 @@ export const Settings: FC = () => {
         <SText style={[MainStyles.textCenter, {fontSize: 20, margin: 10, alignSelf: 'flex-start', marginLeft: 15}]}>
           Appearance
         </SText>
-        <View style={{flexDirection: 'row', alignItems: 'center', padding: 10, marginHorizontal: 25}}>
-          <SText style={{flex: 1}}>Color Theme</SText>
-          <View style={{flex: 1, justifyContent: 'center', alignItems: 'flex-end', marginRight: 5}}>
-            <View style={{...MainStyles.borderRadiusC, padding: 5}}>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={{flexDirection: 'row', alignItems: 'center', width: "100%"}}>
+            <View style={{flex: 1}}/>
+            <View style={{flex: 12, justifyContent: 'center'}}>
+              <SText>Color Theme</SText>
+            </View>
+            <View style={[MainStyles.borderRadiusC, MainStyles.center, {padding: 7, flex: 2, marginRight: 2}]}>
               <TouchableOpacity style={[MainStyles.borderRadiusC, {backgroundColor: colors.textInputBackground,
               padding: 5}]} onPress={() => {
                 setTheme(NEXT_THEME[theme])
@@ -62,6 +65,7 @@ export const Settings: FC = () => {
                 hasTVPreferredFocus={undefined} tvParallaxProperties={undefined}/>
               </TouchableOpacity>
             </View>
+            <View style={{flex: 1}}/>
           </View>
         </View>
       </View>

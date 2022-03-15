@@ -1,14 +1,15 @@
 //Third Party Imports
 import React, { FC } from 'react';
 import { View } from 'react-native';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilValue } from 'recoil';
 
 //First Party Imports
-import { colorState, nameState, themeState } from '../RecoilState';
+import { colorState } from '../RecoilState';
 import { SText } from '../Components/SText';
 import { MainStyles } from '../Styles/MainStyles';
 import { IDevice } from '../Interfaces/IDevice';
-import { SDevice } from '../Components/SDevice';
+import { SImage } from '../Components/SImage';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 interface DeviceProps{
@@ -16,14 +17,31 @@ interface DeviceProps{
 }
 
 export const Device: FC<DeviceProps> = ({device}) => {
-  const [theme, setTheme] = useRecoilState(themeState);
   const colors = useRecoilValue(colorState);
-  const [name, setName] = useRecoilState(nameState)
 
   return (
-    <View style={{flex: 1, alignItems: "center", marginHorizontal: 10}}>
-      <SText style={{marginBottom: 15, fontWeight: 'bold', fontSize: 25}}>{device.name}</SText>
-      <SDevice style={{margin: 10}} device={device} fillHeight={false}/>
+    <View style={[MainStyles.container]}>
+      <SText style={[MainStyles.textCenter, {marginBottom: 15, fontWeight: 'bold', fontSize: 25}]}>
+        {device.name}
+      </SText>
+
+      <View style={[MainStyles.center, {flexDirection: 'row', marginVertical: 10}]}>
+        <SText style={[MainStyles.textCenter, {flex: 2}]}>Type: {device.type}</SText>
+        <SText style={[MainStyles.textCenter, {flex: 3}]}>Category: {device.category}</SText>
+      </View>
+
+      <View style={{margin: 10}}>
+        <SImage style={[MainStyles.borderRadius2]} imageSrc={device.imageURI}/>
+      </View>
+
+      <View style={[MainStyles.borderRadius2, {flex: 1, margin: 10, padding: 10,
+      backgroundColor: colors.textInputBackground}]}>
+        <ScrollView>
+          <SText>
+            {device.description}
+          </SText>
+        </ScrollView>
+      </View>
     </View>
   );
 }

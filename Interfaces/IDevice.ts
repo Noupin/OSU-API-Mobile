@@ -9,4 +9,5 @@ export interface IDevice{
     type: TDeviceType
     category: string
     brand?: string
+    description: string
 }

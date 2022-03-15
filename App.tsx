@@ -121,7 +121,7 @@ const App = () => {
       <StatusBar barStyle={colors.statusBar}/>
       <SafeAreaProvider>
         <NavigationContainer ref={navigationRef}>
-          <Tab.Navigator initialRouteName="Settings" backBehavior='order'
+          <Tab.Navigator initialRouteName="Home" backBehavior='order'
           screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
               return <Icon name={TAB_ICON[route.name as TTabName]}
