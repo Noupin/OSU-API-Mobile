@@ -14,9 +14,7 @@ import { STeamCard } from '../Components/STeamCard';
 
 
 export const Join: FC = () => {
-  const [theme, setTheme] = useRecoilState(themeState);
   const colors = useRecoilValue(colorState);
-  const [name, setName] = useRecoilState(nameState)
 
   return (
     <View style={[MainStyles.container, {marginHorizontal: 10, justifyContent: 'space-between'}]}>
