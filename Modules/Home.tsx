@@ -28,7 +28,6 @@ export const Home: FC = () => {
   return (
     <View style={{flex: 1, alignItems: "center", marginHorizontal: 10}}>
       <SText style={{marginBottom: 15, fontWeight: 'bold', fontSize: 25}}>Home</SText>
-
       <FlatList data={categoryDevices} keyExtractor={item => item.name}
       renderItem={({item}) => (
         <View style={{flexDirection: 'row'}}>

@@ -16,16 +16,11 @@ interface DeviceTypeProps{
 }
 
 export const DeviceType: FC<DeviceTypeProps> = ({type}) => {
-  const [theme, setTheme] = useRecoilState(themeState);
-  const colors = useRecoilValue(colorState);
-  const [name, setName] = useRecoilState(nameState)
-
   const devicesFromType = DEVICES.filter((device) => device.type === type)
 
   return (
     <View style={{flex: 1, alignItems: "center", marginHorizontal: 10}}>
       <SText style={{marginBottom: 15, fontWeight: 'bold', fontSize: 25}}>{`${type}s`}</SText>
-
       <FlatList data={devicesFromType} keyExtractor={item => item.name}
       renderItem={({item}) => (
         <View style={{flexDirection: 'row'}}>

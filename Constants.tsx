@@ -31,7 +31,7 @@ export const COLORS: IColors = {
         statusBar: 'light-content',
         placeholderText: darkPlaceholder,
         textInputBackground: '#FFFFFF10',
-        button: '#BD8181',
+        button: '#8F4B4B',
         overlay: '#000000B0',
     }
 }

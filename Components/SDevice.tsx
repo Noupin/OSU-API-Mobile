@@ -3,7 +3,6 @@ import React, { FC } from 'react';
 import { TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
 
 //First Party Imports
-import { navigate } from '../Helpers/Navigation';
 import { MainStyles } from '../Styles/MainStyles';
 import { useRecoilValue } from 'recoil';
 import { colorState } from '../RecoilState';
