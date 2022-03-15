@@ -1,11 +1,18 @@
 //Third Party Imports
-import * as React from 'react';
+import { createRef } from "react";
 
-
-const {createRef} = React
 
 export const navigationRef = createRef<any>();
-
 export function navigate(name: string, params?: any) {
     navigationRef.current?.navigate(name, params);
+}
+
+export const settingsNavigationRef = createRef<any>();
+export function settingsNavigate(name: string, params?: any) {
+    settingsNavigationRef.current?.navigate(name, params);
+}
+
+export const homeNavigationRef = createRef<any>();
+export function homeNavigate(name: string, params?: any) {
+    homeNavigationRef.current?.navigate(name, params);
 }

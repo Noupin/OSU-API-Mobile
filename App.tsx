@@ -11,7 +11,7 @@ import { useRecoilState } from 'recoil';
 
 //First Party Imports
 import { COLORS, TAB_COLOR, TAB_ICON, TAB_ICON_TYPE } from './Constants';
-import { navigationRef } from './Helpers/Navigation';
+import { navigationRef, settingsNavigationRef } from './Helpers/Navigation';
 import { Attendance } from './Modules/Attendance';
 import { Home } from './Modules/Home';
 import { Join } from './Modules/Join';
@@ -26,22 +26,24 @@ const SettingsStack = createNativeStackNavigator();
 
 const SettingsScreenStack = () => {
   return (
-    <SettingsStack.Navigator screenOptions={{headerShown: false}}>
-      <SettingsStack.Screen name="Settings">
-        {(props) => (
-          <ScreenContainer {...props}>
-            <Settings/>
-          </ScreenContainer>
-        )}
-      </SettingsStack.Screen>
-      <SettingsStack.Screen name="Attendance">
-        {(props) => (
-          <ScreenContainer {...props}>
-            <Attendance/>
-          </ScreenContainer>
-        )}
-      </SettingsStack.Screen>
-    </SettingsStack.Navigator>
+    <NavigationContainer independent ref={settingsNavigationRef}>
+      <SettingsStack.Navigator screenOptions={{headerShown: false}}>
+        <SettingsStack.Screen name="Settings">
+          {(props) => (
+            <ScreenContainer {...props}>
+              <Settings/>
+            </ScreenContainer>
+          )}
+        </SettingsStack.Screen>
+        <SettingsStack.Screen name="Attendance">
+          {(props) => (
+            <ScreenContainer {...props}>
+              <Attendance/>
+            </ScreenContainer>
+          )}
+        </SettingsStack.Screen>
+      </SettingsStack.Navigator>
+    </NavigationContainer>
   );
 }
 

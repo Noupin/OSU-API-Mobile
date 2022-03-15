@@ -11,7 +11,7 @@ import { SText } from '../Components/SText';
 import { MainStyles } from '../Styles/MainStyles';
 import { STextInput } from '../Components/STextInput';
 import { SButton } from '../Components/SButton';
-import { navigate } from '../Helpers/Navigation';
+import { settingsNavigate } from '../Helpers/Navigation';
 
 
 export const Settings: FC = () => {
@@ -56,7 +56,7 @@ export const Settings: FC = () => {
         <View style={{flex: 1}}></View>
         <View style={{flex: 4}}>
           <SButton style={[MainStyles.borderRadius2, MainStyles.center,
-          {padding: 10, margin: 5, flexDirection: 'row'}]} onPress={() => {navigate("Attendance")}}>
+          {padding: 10, margin: 5, flexDirection: 'row'}]} onPress={() => {settingsNavigate("Attendance")}}>
             <View style={{flex: 1}}></View>
             <View style={{flex: 2}}>
               <SText style={[MainStyles.textCenter]}>Attendance</SText>

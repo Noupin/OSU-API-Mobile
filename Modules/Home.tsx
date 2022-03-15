@@ -25,7 +25,7 @@ export const Home: FC = () => {
     if(tempArr.length === 0) return;
 
     const tempDevice = tempArr[0]
-    tempDevice.name = type
+    tempDevice.name = `${type}s`
     categoryDevices.push(tempDevice)
   })
 

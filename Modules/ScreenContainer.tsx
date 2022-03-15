@@ -11,21 +11,29 @@ import { HeaderBarStyle } from '../Styles/HeaderBar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colorState } from '../RecoilState';
 import { BACK_ICON, TAB_ICON, TAB_ICON_TYPE, TOP_BAR_SIZE } from '../Constants';
-import { navigate, navigationRef } from '../Helpers/Navigation';
+import { navigate, navigationRef, settingsNavigationRef } from '../Helpers/Navigation';
 
 
 export const ScreenContainer: FC = ({children}) => {
   const colors = useRecoilValue(colorState);
 
+  let localNavigation: any;
+  if(settingsNavigationRef.current && settingsNavigationRef.current.canGoBack()){
+    localNavigation = settingsNavigationRef.current
+  }
+  if(settingsNavigationRef.current && settingsNavigationRef.current.canGoBack()){
+    localNavigation = settingsNavigationRef.current
+  }
+
   return(
     <SafeAreaView style={[MainStyles.container, {width: "100%", backgroundColor: colors.background}]}>
       <View style={[MainStyles.container, {width: "100%"}]}>
         <View style={HeaderBarStyle.container}>
-          {navigationRef.current && navigationRef.current.canGoBack() ?
+          {localNavigation ?
           <TouchableOpacity style={{...MainStyles.borderRadiusC, padding: 5}}>
             <Icon name={BACK_ICON.name} type={BACK_ICON.type} size={20} color={colors.text}
             hasTVPreferredFocus={undefined} tvParallaxProperties={undefined}
-            onPress={() => {navigationRef.current.goBack()}}/>
+            onPress={() => {localNavigation.goBack()}}/>
           </TouchableOpacity> :
           //This is invisible and does nothing when pressed, it just renders to keep the logo centered
           <TouchableOpacity style={{...MainStyles.borderRadiusC, padding: 5}}>
