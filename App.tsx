@@ -10,7 +10,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useRecoilState } from 'recoil';
 
 //First Party Imports
-import { COLORS, TAB_COLOR, TAB_ICON, TAB_ICON_TYPE } from './Constants';
+import { COLORS, NULL_DEVICE, TAB_COLOR, TAB_ICON, TAB_ICON_TYPE } from './Constants';
 import { homeNavigationRef, navigationRef, settingsNavigationRef } from './Helpers/Navigation';
 import { Attendance } from './Modules/Attendance';
 import { Device } from './Modules/Device';
@@ -72,7 +72,7 @@ const HomeScreenStack = () => {
         <HomeStack.Screen name="Device">
           {(props) => (
             <ScreenContainer {...props}>
-              <Device/>
+              <Device device={NULL_DEVICE} {...props.route.params}/>
             </ScreenContainer>
           )}
         </HomeStack.Screen>

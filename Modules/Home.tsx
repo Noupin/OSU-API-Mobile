@@ -15,16 +15,12 @@ import { homeNavigate } from '../Helpers/Navigation';
 
 
 export const Home: FC = () => {
-  const [theme, setTheme] = useRecoilState(themeState);
-  const colors = useRecoilValue(colorState);
-  const [name, setName] = useRecoilState(nameState)
-
   const categoryDevices: IDevice[] = []
   TDeviceTypeArray.forEach((type) => {
     const tempArr = DEVICES.filter((device) => device.type === type)
     if(tempArr.length === 0) return;
 
-    const tempDevice = tempArr[0]
+    const tempDevice = {...tempArr[0]}
     tempDevice.name = `${type}s`
     categoryDevices.push(tempDevice)
   })
@@ -32,6 +28,7 @@ export const Home: FC = () => {
   return (
     <View style={{flex: 1, alignItems: "center", marginHorizontal: 10}}>
       <SText style={{marginBottom: 15, fontWeight: 'bold', fontSize: 25}}>Home</SText>
+
       <FlatList data={categoryDevices} keyExtractor={item => item.name}
       renderItem={({item}) => (
         <View style={{flexDirection: 'row'}}>

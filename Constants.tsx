@@ -90,6 +90,15 @@ export const TOP_BAR_SIZE = 30;
 /*
 Prosthetics Devices
 */
+export const NULL_DEVICE: IDevice = {
+    name: "",
+    modelURI: "",
+    imageURI: "",
+    type: "Finger",
+    category: "",
+    brand: "",
+}
+
 export const DEVICES: IDevice[] = [
     {
         name: "Unlimted Phoenix",
