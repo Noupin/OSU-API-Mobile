@@ -21,7 +21,7 @@ export const SDevice: FC<IShiftCard> = ({children, style, device, fillHeight=tru
   const colors = useRecoilValue(colorState)
 
   return (
-    <TouchableOpacity style={[style]} {...props} onPress={() => {/*navigate("Shift", {uuid: shift.uuid})*/return}}>
+    <TouchableOpacity style={[style]} {...props}>
       <View style={{position: 'relative'}}>
         <SImage style={[MainStyles.borderRadius2, fillHeight && {height: "100%"}]}
         imageSrc={device.imageURI}/>

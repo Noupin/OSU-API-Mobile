@@ -9,7 +9,7 @@ import { SText } from '../Components/SText';
 import { MainStyles } from '../Styles/MainStyles';
 
 
-export const Attendance: FC = () => {
+export const Device: FC = () => {
   const [theme, setTheme] = useRecoilState(themeState);
   const colors = useRecoilValue(colorState);
   const [name, setName] = useRecoilState(nameState)

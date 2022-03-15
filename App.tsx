@@ -11,8 +11,10 @@ import { useRecoilState } from 'recoil';
 
 //First Party Imports
 import { COLORS, TAB_COLOR, TAB_ICON, TAB_ICON_TYPE } from './Constants';
-import { navigationRef, settingsNavigationRef } from './Helpers/Navigation';
+import { homeNavigationRef, navigationRef, settingsNavigationRef } from './Helpers/Navigation';
 import { Attendance } from './Modules/Attendance';
+import { Device } from './Modules/Device';
+import { DeviceType } from './Modules/DeviceType';
 import { Home } from './Modules/Home';
 import { Join } from './Modules/Join';
 import { ScreenContainer } from './Modules/ScreenContainer';
@@ -43,6 +45,38 @@ const SettingsScreenStack = () => {
           )}
         </SettingsStack.Screen>
       </SettingsStack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+const HomeStack = createNativeStackNavigator();
+
+const HomeScreenStack = () => {
+  return (
+    <NavigationContainer independent ref={homeNavigationRef}>
+      <HomeStack.Navigator screenOptions={{headerShown: false}}>
+        <HomeStack.Screen name="Home">
+          {(props) => (
+            <ScreenContainer {...props}>
+              <Home/>
+            </ScreenContainer>
+          )}
+        </HomeStack.Screen>
+        <HomeStack.Screen name="DeviceType">
+          {(props) => (
+            <ScreenContainer {...props}>
+              <DeviceType type='' {...props.route.params}/>
+            </ScreenContainer>
+          )}
+        </HomeStack.Screen>
+        <HomeStack.Screen name="Device">
+          {(props) => (
+            <ScreenContainer {...props}>
+              <Device/>
+            </ScreenContainer>
+          )}
+        </HomeStack.Screen>
+      </HomeStack.Navigator>
     </NavigationContainer>
   );
 }
@@ -98,13 +132,7 @@ const App = () => {
             headerShown: false,
             tabBarActiveTintColor: TAB_COLOR,
           })}>
-            <Tab.Screen name="Home">
-              {(props) => (
-                <ScreenContainer {...props}>
-                  <Home/>
-                </ScreenContainer>
-              )}
-            </Tab.Screen>
+            <Tab.Screen name="Home" component={HomeScreenStack}/>
             <Tab.Screen name="Join">
               {(props) => (
                 <ScreenContainer {...props}>

@@ -6,12 +6,12 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 //First Party Imports
 import { colorState, nameState, themeState } from '../RecoilState';
 import { SText } from '../Components/SText';
-import { MainStyles } from '../Styles/MainStyles';
 import { FlatList } from 'react-native-gesture-handler';
 import { DEVICES } from '../Constants';
 import { SDevice } from '../Components/SDevice';
 import { IDevice } from '../Interfaces/IDevice';
 import { TDeviceTypeArray } from '../Types/TDeviceType';
+import { homeNavigate } from '../Helpers/Navigation';
 
 
 export const Home: FC = () => {
@@ -35,7 +35,8 @@ export const Home: FC = () => {
       <FlatList data={categoryDevices} keyExtractor={item => item.name}
       renderItem={({item}) => (
         <View style={{flexDirection: 'row'}}>
-          <SDevice style={{margin: 10}} device={item} fillHeight={false}/>
+          <SDevice style={{margin: 10}} device={item} fillHeight={false}
+          onPress={() => homeNavigate('DeviceType', {type: item.type})}/>
         </View>
       )}/>
     </View>

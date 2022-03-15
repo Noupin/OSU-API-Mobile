@@ -11,7 +11,7 @@ import { HeaderBarStyle } from '../Styles/HeaderBar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colorState } from '../RecoilState';
 import { BACK_ICON, TAB_ICON, TAB_ICON_TYPE, TOP_BAR_SIZE } from '../Constants';
-import { navigate, navigationRef, settingsNavigationRef } from '../Helpers/Navigation';
+import { homeNavigationRef, navigate, navigationRef, settingsNavigationRef } from '../Helpers/Navigation';
 
 
 export const ScreenContainer: FC = ({children}) => {
@@ -21,8 +21,8 @@ export const ScreenContainer: FC = ({children}) => {
   if(settingsNavigationRef.current && settingsNavigationRef.current.canGoBack()){
     localNavigation = settingsNavigationRef.current
   }
-  if(settingsNavigationRef.current && settingsNavigationRef.current.canGoBack()){
-    localNavigation = settingsNavigationRef.current
+  if(homeNavigationRef.current && homeNavigationRef.current.canGoBack()){
+    localNavigation = homeNavigationRef.current
   }
 
   return(
