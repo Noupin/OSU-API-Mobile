@@ -30,17 +30,17 @@ export const Device: FC<DeviceProps> = ({device}) => {
         <SText style={[MainStyles.textCenter, {flex: 3}]}>Category: {device.category}</SText>
       </View>
 
-      <View style={{margin: 10}}>
+      <View style={{margin: 10, flex: 1}}>
         <SImage style={[MainStyles.borderRadius2]} imageSrc={device.imageURI}/>
-      </View>
 
-      <View style={[MainStyles.borderRadius2, {flex: 1, margin: 10, padding: 10,
-      backgroundColor: colors.textInputBackground}]}>
-        <ScrollView>
-          <SText>
-            {device.description}
-          </SText>
-        </ScrollView>
+        <View style={[MainStyles.borderRadius2, {flex: 1, padding: 10, marginTop: 10,
+        backgroundColor: colors.textInputBackground}]}>
+          <ScrollView style={{paddingRight: 5}}>
+            <SText>
+              {device.description}
+            </SText>
+          </ScrollView>
+        </View>
       </View>
     </View>
   );
