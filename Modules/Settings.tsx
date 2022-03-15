@@ -20,35 +20,42 @@ export const Settings: FC = () => {
   const [name, setName] = useRecoilState(nameState)
 
   return (
-    <View style={{flex: 1, alignItems: "center", marginHorizontal: 10}}>
-      <SText style={{marginBottom: 15, fontWeight: 'bold', fontSize: 25}}>Settings</SText>
+    <View style={{flex: 1, alignItems: "center", justifyContent: 'space-between'}}>
+      <View style={{flex: 1, alignItems: "center"}}>
+        <SText style={{marginBottom: 15, fontWeight: 'bold', fontSize: 25}}>Settings</SText>
 
-      <View style={{flexDirection: 'row', alignItems: 'center', padding: 10, marginHorizontal: 15}}>
-        <SText style={{flex: 1}}>Color Theme</SText>
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'flex-end', marginRight: 5}}>
-          <View style={{...MainStyles.borderRadiusC, padding: 5}}>
-            <TouchableOpacity onPress={() => {
-              setTheme(NEXT_THEME[theme])
-            }}>
-              <Icon name={THEME_ICON[theme]} type={THEME_ICON_TYPE[theme]}
-              color={theme === 'device' ? colors.text:THEME_COLORS[theme]}
-              hasTVPreferredFocus={undefined} tvParallaxProperties={undefined}/>
-            </TouchableOpacity>
+        <SText style={[MainStyles.textCenter, {fontSize: 20, margin: 10, alignSelf: 'flex-start'}]}>
+          ID: {name}
+        </SText>
+        <View style={{flexDirection: 'column', alignItems: 'center'}}>
+          <View style={{flexDirection: 'row', alignItems: 'center', width: "100%"}}>
+            <View style={{flex: 1}}></View>
+            <View style={{flex: 4}}>
+              <STextInput style={[MainStyles.textCenter, MainStyles.borderRadius2, 
+              {color: colors.text, backgroundColor: colors.textInputBackground, marginVertical: 10}]}
+              onChangeText={setName} value={name} autoCorrect={false} alignText="center"
+              padding={10} placeholder="Your New Name"/>
+            </View>
+            <View style={{flex: 1}}></View>
           </View>
         </View>
-      </View>
 
-      <View style={{flexDirection: 'column', alignItems: 'center'}}>
-        <SText>Current Name: {name}</SText>
-        <View style={{flexDirection: 'row', alignItems: 'center', width: "100%"}}>
-          <View style={{flex: 1}}></View>
-          <View style={{flex: 4}}>
-            <STextInput style={[MainStyles.textCenter, MainStyles.borderRadius2, 
-            {color: colors.text, backgroundColor: colors.textInputBackground, marginVertical: 10}]}
-            onChangeText={setName} value={name} autoCorrect={false} alignText="center"
-            padding={10} placeholder="This"/>
+        <SText style={[MainStyles.textCenter, {fontSize: 20, margin: 10, alignSelf: 'flex-start'}]}>
+          Appearance
+        </SText>
+        <View style={{flexDirection: 'row', alignItems: 'center', padding: 10, marginHorizontal: 25}}>
+          <SText style={{flex: 1}}>Color Theme</SText>
+          <View style={{flex: 1, justifyContent: 'center', alignItems: 'flex-end', marginRight: 5}}>
+            <View style={{...MainStyles.borderRadiusC, padding: 5}}>
+              <TouchableOpacity onPress={() => {
+                setTheme(NEXT_THEME[theme])
+              }}>
+                <Icon name={THEME_ICON[theme]} type={THEME_ICON_TYPE[theme]}
+                color={theme === 'device' ? colors.text:THEME_COLORS[theme]}
+                hasTVPreferredFocus={undefined} tvParallaxProperties={undefined}/>
+              </TouchableOpacity>
+            </View>
           </View>
-          <View style={{flex: 1}}></View>
         </View>
       </View>
 

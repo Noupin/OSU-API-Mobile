@@ -32,17 +32,17 @@ export const Join: FC = () => {
           <STeamCard name='Education' style={[{...MainStyles.textCenter, flex: 1, margin: 5}]}
             description='To educate amputees about their options for technologies'/>
           <STeamCard name='Communications' style={[{...MainStyles.textCenter, flex: 1, margin: 5}]}
-            description='To educate amputees about their options for technologies'/>
+            description='Ensuring amputees and professions know how to work with us'/>
         </View>
         <View style={[MainStyles.center, {flexDirection: 'row', marginTop: 10, marginBottom: 10, flex: 1}]}>
           <STeamCard name='Production' style={[{...MainStyles.textCenter, flex: 1, margin: 5}]}
-            description='To educate amputees about their options for technologies'/>
+            description='Manufacturing affordable open-source prosthetics'/>
           <STeamCard name='Sustainability' style={[{...MainStyles.textCenter, flex: 1, margin: 5}]}
-            description='To educate amputees about their options for technologies'/>
+            description='Guarantee prothetics are made with recycled materials'/>
         </View>
 
         <SButton style={[MainStyles.borderRadius2, MainStyles.center, {padding: 10, margin: 5,
-        flexDirection: 'row', marginLeft: 25, marginRight: 25}]}
+        flexDirection: 'row', marginHorizontal: 25}]}
         onPress={() => openLink('https://forms.gle/NXdRubsF6wfLjPUX8')}>
           <View style={{flex: 1}}></View>
           <View style={{flex: 3}}>

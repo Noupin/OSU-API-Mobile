@@ -10,7 +10,6 @@ import { colorState, themeState } from '../RecoilState';
 import { IDevice } from '../Interfaces/IDevice';
 import { SImage } from './SImage'
 import { SText } from './SText';
-import { BlurEffectTypes } from 'react-native-screens';
 
 
 export interface IShiftCard extends TouchableOpacityProps{

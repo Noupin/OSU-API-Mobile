@@ -89,7 +89,7 @@ const App = () => {
   const [name, setName] = useRecoilState(nameState)
   const [initial, setInitial] = useRecoilState(initialState)
   const [colors, setColors] = useRecoilState(colorState)
-  var scheme = useColorScheme()
+  const scheme = useColorScheme()
 
   useEffect(() => {
     async function loadFromStorage(){
@@ -121,7 +121,7 @@ const App = () => {
       <StatusBar barStyle={colors.statusBar}/>
       <SafeAreaProvider>
         <NavigationContainer ref={navigationRef}>
-          <Tab.Navigator initialRouteName="Join" backBehavior='order'
+          <Tab.Navigator initialRouteName="Settings" backBehavior='order'
           screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
               return <Icon name={TAB_ICON[route.name as TTabName]}
