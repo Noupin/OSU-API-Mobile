@@ -1,5 +1,5 @@
 //Third Party Imports
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { useRecoilState, useRecoilValue } from 'recoil';
@@ -18,36 +18,43 @@ export const Settings: FC = () => {
   const [theme, setTheme] = useRecoilState(themeState);
   const colors = useRecoilValue(colorState);
   const [name, setName] = useRecoilState(nameState)
+  const [locName, setLocName] = useState('')
 
   return (
     <View style={{flex: 1, alignItems: "center", justifyContent: 'space-between'}}>
       <View style={{flex: 1, alignItems: "center"}}>
         <SText style={{marginBottom: 15, fontWeight: 'bold', fontSize: 25}}>Settings</SText>
 
-        <SText style={[MainStyles.textCenter, {fontSize: 20, margin: 10, alignSelf: 'flex-start'}]}>
-          ID: {name}
+        <SText style={[MainStyles.textCenter, {fontSize: 20, margin: 10, alignSelf: 'flex-start', marginLeft: 15}]}>
+          Profile: {name}
         </SText>
         <View style={{flexDirection: 'column', alignItems: 'center'}}>
           <View style={{flexDirection: 'row', alignItems: 'center', width: "100%"}}>
             <View style={{flex: 1}}></View>
-            <View style={{flex: 4}}>
+            <View style={{flex: 5}}>
               <STextInput style={[MainStyles.textCenter, MainStyles.borderRadius2, 
               {color: colors.text, backgroundColor: colors.textInputBackground, marginVertical: 10}]}
-              onChangeText={setName} value={name} autoCorrect={false} alignText="center"
+              onChangeText={setLocName} value={locName} autoCorrect={false} alignText="center"
               padding={10} placeholder="Your New Name"/>
             </View>
+            <SButton style={[MainStyles.borderRadius2, MainStyles.center, {marginHorizontal: 10, flex: 1,
+            height: 'auto', paddingVertical: 5}]} onPress={() => {if(locName !== '') setName(locName)}}>
+              <Icon name='arrow-up-circle' type='ionicon' color={colors.text}
+                hasTVPreferredFocus={undefined} tvParallaxProperties={undefined}/>
+            </SButton>
             <View style={{flex: 1}}></View>
           </View>
         </View>
 
-        <SText style={[MainStyles.textCenter, {fontSize: 20, margin: 10, alignSelf: 'flex-start'}]}>
+        <SText style={[MainStyles.textCenter, {fontSize: 20, margin: 10, alignSelf: 'flex-start', marginLeft: 15}]}>
           Appearance
         </SText>
         <View style={{flexDirection: 'row', alignItems: 'center', padding: 10, marginHorizontal: 25}}>
           <SText style={{flex: 1}}>Color Theme</SText>
           <View style={{flex: 1, justifyContent: 'center', alignItems: 'flex-end', marginRight: 5}}>
             <View style={{...MainStyles.borderRadiusC, padding: 5}}>
-              <TouchableOpacity onPress={() => {
+              <TouchableOpacity style={[MainStyles.borderRadiusC, {backgroundColor: colors.textInputBackground,
+              padding: 5}]} onPress={() => {
                 setTheme(NEXT_THEME[theme])
               }}>
                 <Icon name={THEME_ICON[theme]} type={THEME_ICON_TYPE[theme]}
