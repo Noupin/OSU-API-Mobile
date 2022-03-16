@@ -1,6 +1,5 @@
 //Third Party Imports
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { threeHexToSixHex } from './Helpers/Colors';
 
 //First Party Imports
 import { IColors } from './Interfaces/IColors';
@@ -8,6 +7,11 @@ import { IDevice } from './Interfaces/IDevice';
 import { IIcon } from './Interfaces/IIcon';
 import { TAttendanceTypeArray } from './Types/TAttendanceType';
 import { TThemeArray } from './Types/TTheme';
+import { threeHexToSixHex } from './Helpers/Colors';
+import { CYBORG_BEAST_DESCRIPTION, FLEXY_HAND_2_DESCRIPTION,
+    GRIPPER_THUMB_DESCRIPTION, ODY_HAND_DESCRIPTION, OSPREY_DESCRIPTION,
+    PHOENIX_HAND_REBORN_DESCRIPTION, PHOENIX_V2_DESCRIPTION,
+    RAPTOR_RELOADED_DESCRIPTION, TALON_DESCRIPTION, UNLIMBTED_PHOENIX_DESCRIPTION } from './Descriptions';
 
 
 /**************
@@ -125,22 +129,6 @@ export const NULL_DEVICE: IDevice = {
     description: "",
 }
 
-const DEVICE_DESCRIPTION = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis elementum posuere lectus.
-Morbi ullamcorper in elit a pellentesque. Vivamus pulvinar dictum pharetra. Nulla dignissim
-pellentesque elit ac feugiat. Sed vitae mi porttitor, elementum felis sit amet, dapibus tellus.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis elementum posuere lectus.
-Morbi ullamcorper in elit a pellentesque. Vivamus pulvinar dictum pharetra. Nulla dignissim
-pellentesque elit ac feugiat. Sed vitae mi porttitor, elementum felis sit amet, dapibus tellus.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis elementum posuere lectus.
-Morbi ullamcorper in elit a pellentesque. Vivamus pulvinar dictum pharetra. Nulla dignissim
-pellentesque elit ac feugiat. Sed vitae mi porttitor, elementum felis sit amet, dapibus tellus.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis elementum posuere lectus.
-Morbi ullamcorper in elit a pellentesque. Vivamus pulvinar dictum pharetra. Nulla dignissim
-pellentesque elit ac feugiat. Sed vitae mi porttitor, elementum felis sit amet, dapibus tellus.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis elementum posuere lectus.
-Morbi ullamcorper in elit a pellentesque. Vivamus pulvinar dictum pharetra. Nulla dignissim
-pellentesque elit ac feugiat. Sed vitae mi porttitor, elementum felis sit amet, dapibus tellus.`
-
 export const DEVICES: IDevice[] = [
     {
         name: "Unlimted Phoenix",
@@ -149,7 +137,7 @@ export const DEVICES: IDevice[] = [
         type: "Hand",
         category: "Closed Back",
         brand: "Phoenix",
-        description: DEVICE_DESCRIPTION,
+        description: UNLIMBTED_PHOENIX_DESCRIPTION,
     },
     {
         name: "Phoenix V2",
@@ -158,7 +146,7 @@ export const DEVICES: IDevice[] = [
         type: "Hand",
         category: "Closed Back",
         brand: "Phoenix",
-        description: DEVICE_DESCRIPTION,
+        description: PHOENIX_V2_DESCRIPTION,
     },
     {
         name: "Phoenix Hand Reborn",
@@ -167,7 +155,7 @@ export const DEVICES: IDevice[] = [
         type: "Hand",
         category: "Closed Back",
         brand: "Phoenix",
-        description: DEVICE_DESCRIPTION,
+        description: PHOENIX_HAND_REBORN_DESCRIPTION,
     },
     {
         name: "Osprey",
@@ -176,7 +164,7 @@ export const DEVICES: IDevice[] = [
         type: "Hand",
         category: "Closed Back",
         brand: "Phoenix",
-        description: DEVICE_DESCRIPTION,
+        description: OSPREY_DESCRIPTION,
     },
     {
         name: "Raptor Reloaded",
@@ -184,7 +172,7 @@ export const DEVICES: IDevice[] = [
         imageURI: "https://cdn.thingiverse.com/renders/f1/78/e1/76/d1/IMG_5635_preview_featured.JPG",
         type: "Hand",
         category: "Closed Back",
-        description: DEVICE_DESCRIPTION,
+        description: RAPTOR_RELOADED_DESCRIPTION,
     },
     {
         name: "Cyborg Beast",
@@ -192,7 +180,7 @@ export const DEVICES: IDevice[] = [
         imageURI: "https://cdn.thingiverse.com/renders/a7/d5/a3/98/e2/shea2_preview_featured.jpg",
         type: "Hand",
         category: "Closed Back",
-        description: DEVICE_DESCRIPTION,
+        description: CYBORG_BEAST_DESCRIPTION,
     },
     {
         name: "Flexy-Hand 2",
@@ -200,7 +188,7 @@ export const DEVICES: IDevice[] = [
         imageURI: "https://cdn.thingiverse.com/assets/f8/48/6d/53/13/20140727_105125_zps8api5uvi.jpg",
         type: "Hand",
         category: "Closed Back",
-        description: DEVICE_DESCRIPTION,
+        description: FLEXY_HAND_2_DESCRIPTION,
     },
     {
         name: "Talon",
@@ -208,7 +196,7 @@ export const DEVICES: IDevice[] = [
         imageURI: "https://www.usine-digitale.fr/mediatheque/0/0/1/000198100_homePageUne/prothese-de-main-imprimee-3d.jpg",
         type: "Hand",
         category: "Open Back",
-        description: DEVICE_DESCRIPTION,
+        description: TALON_DESCRIPTION,
     },
     {
         name: "Ody-Hand",
@@ -216,7 +204,7 @@ export const DEVICES: IDevice[] = [
         imageURI: "https://cdn.thingiverse.com/renders/6c/80/53/de/e7/P5050443_preview_featured.jpg",
         type: "Hand",
         category: "Open Back",
-        description: DEVICE_DESCRIPTION,
+        description: ODY_HAND_DESCRIPTION,
     },
     {
         name: "Gripper Thumb",
@@ -224,6 +212,6 @@ export const DEVICES: IDevice[] = [
         imageURI: "https://cdn.thingiverse.com/renders/4e/d6/58/83/1a/2666a97802c6b49ef60c16e13b5c70b8_preview_featured.jpg",
         type: "Finger",
         category: "Thumb",
-        description: DEVICE_DESCRIPTION,
+        description: GRIPPER_THUMB_DESCRIPTION,
     },
 ]
