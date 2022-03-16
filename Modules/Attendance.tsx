@@ -10,14 +10,14 @@ import { SText } from '../Components/SText';
 import { MainStyles } from '../Styles/MainStyles';
 import { STextInput } from '../Components/STextInput';
 import { SButton } from '../Components/SButton';
-import { ATTENDANCE_TYPE_ICON, ATTENDANCE_TYPE_ICON_TYPE, NEXT_ATTENDANCE_TYPE } from '../Constants';
+import { ATTENDANCE_TYPE_DESCRIPTION, ATTENDANCE_TYPE_ICON, ATTENDANCE_TYPE_ICON_TYPE, NEXT_ATTENDANCE_TYPE } from '../Constants';
 
 
 export const Attendance: FC = () => {
   const colors = useRecoilValue(colorState);
-  const [name, setName] = useRecoilState(nameState)
-  const [uuid, setUuid] = useState('')
+  const name = useRecoilValue(nameState)
   const [attendanceType, setAttendanceType] = useRecoilState(attendanceTypeState)
+  const [uuid, setUuid] = useState('')
 
   return (
     <View style={{flex: 1, alignItems: "center", marginHorizontal: 10, marginBottom: 10,
@@ -25,7 +25,7 @@ export const Attendance: FC = () => {
       <View>
         <SText style={[MainStyles.center, MainStyles.textCenter, {marginBottom: 15, fontWeight: 'bold',
         fontSize: 25}]}>
-          Attendance
+          Attendance Over: {ATTENDANCE_TYPE_DESCRIPTION[attendanceType]}
         </SText>
         <SText style={[MainStyles.center, MainStyles.textCenter, {fontSize: 20}]}>
           Meeting ID: {uuid ? uuid : 'No ID'}
@@ -73,7 +73,7 @@ export const Attendance: FC = () => {
           {padding: 10, margin: 5, flexDirection: 'row'}]}>
             <View style={{flex: 1}}></View>
             <View style={{flex: 8}}>
-              <SText style={[MainStyles.textCenter]}>Generate Meeting ID</SText>
+              <SText style={[MainStyles.textCenter]}>Start Attendance</SText>
             </View>
             <View style={[MainStyles.left, {flex: 2}]}>
               <Icon name='ios-refresh-circle-outline' type='ionicon' color={colors.text}

@@ -91,6 +91,11 @@ export const ATTENDANCE_TYPE_ICON_TYPE = {
     local: 'ionicon',
 }
 
+export const ATTENDANCE_TYPE_DESCRIPTION = {
+    global: 'Internet',
+    local: 'Wi-Fi',
+}
+
 export const BACK_ICON: IIcon = {
     name: 'ios-chevron-back-outline',
     type: 'ionicon',
