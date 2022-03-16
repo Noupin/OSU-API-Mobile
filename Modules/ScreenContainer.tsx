@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import { View, Image, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { useRecoilValue } from 'recoil';
+import { useRoute } from '@react-navigation/native';
 
 
 //First Party Imports
@@ -16,12 +17,15 @@ import { homeNavigationRef, navigate, navigationRef, settingsNavigationRef } fro
 
 export const ScreenContainer: FC = ({children}) => {
   const colors = useRecoilValue(colorState);
+  const route = useRoute();
 
   let localNavigation: any;
-  if(settingsNavigationRef.current && settingsNavigationRef.current.canGoBack()){
+  if(navigationRef.current?.getCurrentRoute().name === 'Settings' && settingsNavigationRef.current &&
+  settingsNavigationRef.current.canGoBack()){
     localNavigation = settingsNavigationRef.current
   }
-  if(homeNavigationRef.current && homeNavigationRef.current.canGoBack()){
+  if(navigationRef.current?.getCurrentRoute().name === 'Home' && homeNavigationRef.current &&
+  homeNavigationRef.current.canGoBack()){
     localNavigation = homeNavigationRef.current
   }
 
@@ -45,7 +49,11 @@ export const ScreenContainer: FC = ({children}) => {
             source={{uri: 'https://lh3.googleusercontent.com/e7aq6h-2zG4mGP4zSq-UZklwfsyHzbx3lMNHxnjW9MazFmGZEkBSq_vQFlel6y32lfX-LAMGOKPNQhNFyGz6H1FgG5JV0d9K20vC4pKhCrfrcerrg-rE3DaGZILaaZkUzE_uDp2tXkRpp0YdcsOhFGURMvsT7DJ_PeyG00cFkdX54BgO4NRw78W80DmriVKOCNX7c9d271eYxwLPoXwhAiccahKz1FlOFN4tsuu-lTjckfdDMEf6YatIUePln8Y-mHbiCtlI7zvNZZ6OGHa7yKyvnv5VxNgEsZYuaeNFJ5utA2Posfp3Ix1DN0ZUxL_SUJ3BPYgGxs3GQ1KeFlkGqvRAo0Rb_YdJjExGv-eSwJVUI4EH6S6V9aOPqG8CMZS0QzY7XZH96C5GqXW39lA5dyuzcz4szVeX-BYWr_fVAyR3WOdP7QeJlzs3dUyP3E5_GD9cmNX9CbSuGTjyjSRMFN1VGTKn3SYSLb6iwu1v4nzVB4eYfrgIc9EPC068SivDYCG14AO5ySPp2KXTNG8vJD6UwE7XIzo1boGXh8-Fpl5M58D8CdAtL7_OHZrqzGHHNl9QBt-6yY9TQHewZRxQRz9V1fRu-WS4W5VmQ65y-NU4uYw6f-9OoZmSrNAnYkOHmr5XAc82n-H3SQmCAvONxlYqIjvCOYMGAolKA-8cvvTOcbx4nRTRcta-Izfj0pb06tFImIJAdUBvgrNqHdfDUMXz=s1436-no?authuser=0'}}/>
           </TouchableOpacity>
           <TouchableOpacity style={{...MainStyles.borderRadiusC, padding: 5}}
-          onPress={() => navigate('Settings')}>
+          onPress={() => {
+            if(route.name !== 'Settings'){
+              navigate('Settings')
+            }
+          }}>
             <Icon name={TAB_ICON.Settings} type={TAB_ICON_TYPE.Settings} size={20} color={colors.text}
             hasTVPreferredFocus={undefined} tvParallaxProperties={undefined}/>
           </TouchableOpacity>
