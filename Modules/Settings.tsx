@@ -70,7 +70,7 @@ export const Settings: FC = () => {
         </View>
       </View>
 
-      <View style={{flexDirection: 'row', alignItems: 'center', width: "100%"}}>
+      {/*<View style={{flexDirection: 'row', alignItems: 'center', width: "100%"}}>
         <View style={{flex: 1}}></View>
         <View style={{flex: 4}}>
           <SButton style={[MainStyles.borderRadius2, MainStyles.center,
@@ -87,7 +87,7 @@ export const Settings: FC = () => {
           </SButton>
         </View>
         <View style={{flex: 1}}></View>
-      </View>
+        </View>*/}
     </View>
   );
 }
